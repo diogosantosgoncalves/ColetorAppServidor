@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Pizzaria1.UserControlCadastro"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pizzaria1"
+             mc:Ignorable="d" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             Height="1000" Width="750">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Cadastro de Usuários" Grid.ColumnSpan="3"
+            Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Button Content="Cadastrar" Grid.Row="1" Grid.Column="0" Click="CadastrarUsuario"/>
+        <Button Content="Consultar Usuários Cadastrados" Grid.Row="1" Grid.Column="1" Click="ConsultarUsuario"/>
+        <Button Content="Permissões" Grid.Row="1" Grid.Column="2"/>
+
+        <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Usuário:" Grid.Row="2" />
+        <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
+        <Button Name="bt_ConsultaUsuario" Click="ConsultarUsuario" Content="Consultar"  Grid.Row="2" Grid.Column="2" />
+
+        <DataGrid MaxHeight="500" Width="1000"  Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+             
+                <DataGridTextColumn  Foreground="Red" Width="70" Header="Código" Binding="{Binding usu_id}"/>
+                <DataGridTextColumn  Width="100" Header="Nome" Binding="{Binding usu_nome}"/>
+                <DataGridCheckBoxColumn  Header="Deslogado" Width="100" Binding="{Binding usu_deslogado,Mode=OneWay}"/>
+                <DataGridCheckBoxColumn  Header="  Inativo" Width="100" Binding="{Binding usu_inativo,Mode=OneWay}"/>
+                <DataGridTemplateColumn Width="100" Header="Editar" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <DockPanel HorizontalAlignment="Left">
+                                <TextBlock >
+                                        <Hyperlink  Click="bt_EditarUsuario" Command="{Binding DataContext.DeleteOrganisationCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
+                                            <Image   Height="22" Source="editar.jpg" />
+                                        </Hyperlink>
+                                </TextBlock>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="100" Header="Delete" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <DockPanel HorizontalAlignment="Left">
+                                <TextBlock >
+                                        <Hyperlink  Click="bt_ExcluiUsuario" Command="{Binding DataContext.DeleteOrganisationCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type DataGrid}}}">
+                                            <Image   Height="22" Source="excluir.png" />
+                                        </Hyperlink>
+                                </TextBlock>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <!--<DataGridTemplateColumn Header="Editar" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Name="ImagemEditar" HorizontalAlignment="Left" Height="25" Width="50" Source="{Binding ImagemEditar}"  />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Excluir2" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button
+                                    Name="PreviewNotificationPopup"                                                         
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Click="bt_ExcluiUsuario"                                  
+                                    IsEnabled="True" BorderBrush="White">
+                                    <Image Width="24" Source="excluir.png" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn> -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

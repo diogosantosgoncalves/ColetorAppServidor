@@ -1,0 +1,22 @@
+﻿<Window x:Class="ColetorAppServidor.Views.TelaCadastrarUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColetorAppServidor.Views"
+        mc:Ignorable="d"
+        Title="TelaCadastrarUsuario" Height="350" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <StackPanel Background="AliceBlue">
+        <Label Content="Cadastrar Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="100,0,90,20"/>
+        <TextBox Name="txt_id" Visibility="Hidden" />
+        <Label Content="Nome: " />
+        <TextBox Name="txt_NomeUsuario" />
+        <Label Content="Senha: " />
+        <PasswordBox MaxLength="4"  x:Name="txt_SenhaUsuario" PasswordChar="*"/>
+        <Label Content="Inativo" />
+        <CheckBox IsChecked="False" Name="txt_inativo" />
+        <Label Content="Obs: Senha com até 4 digitos e apenas números" Background="Red" />
+        <Button Content="Cadastrar" Click="Botao_Cadastrar_Alterar" Name="bt_CadastrarUsuario" Width="150" Margin="20" />
+        
+    </StackPanel>
+</Window>
