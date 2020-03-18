@@ -43,16 +43,17 @@ namespace ColetorAppServidor.Services
             }
 
         }
-        public void Salvar(string nome_produto, string setor)
+        public void Salvar(string nome_produto, string setor, int codigo_setor)
         {
             char pr_inativo = '0';
             int pr_quant = 0;
-            sqlcommand.CommandText = "insert into Produto(prod_nome,prod_setor,prod_inativo,prod_quant) values (@nomeprod,@senha,@inativo,@quant);";
+            sqlcommand.CommandText = "insert into Produto(prod_nome,prod_setor,prod_inativo,prod_quant,setor_id) values (@nomeprod,@senha,@inativo,@quant,@setor_id);";
 
             sqlcommand.Parameters.AddWithValue("@nomeprod", nome_produto);
             sqlcommand.Parameters.AddWithValue("@senha", setor);
             sqlcommand.Parameters.AddWithValue("@inativo", pr_inativo);
             sqlcommand.Parameters.AddWithValue("@quant", pr_quant);
+            sqlcommand.Parameters.AddWithValue("@setor_id", codigo_setor);
 
             try
             {
@@ -81,7 +82,7 @@ namespace ColetorAppServidor.Services
                     produto.prod_Codigo = int.Parse(sqldataReader[0].ToString());
                     produto.prod_Nome = sqldataReader[1].ToString();
                     produto.prod_Setor = sqldataReader[2].ToString();
-
+                    produto.setor.setor_id = sqldataReader.GetInt32(5);
                     return produto;
                 }
                 else

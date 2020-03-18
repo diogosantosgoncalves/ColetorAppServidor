@@ -20,16 +20,8 @@ using System.Windows.Shapes;
 
 namespace Pizzaria1
 {
-
-
     public partial class UserControlImportarTxt : UserControl
     {
-        Conexao conexao = new Conexao();
-        SqlCommand cmd = new SqlCommand();
-        SqlCommand cmd_prod = new SqlCommand();
-        SqlDataReader reader_exportar = null;
-        SqlDataReader reader_prod = null;
-
         public UserControlImportarTxt()
         {
             InitializeComponent();
@@ -37,8 +29,11 @@ namespace Pizzaria1
         public void importar_Arquivo_Txt(object sender, RoutedEventArgs e)
         {
             ServicesDBProduto servicesDBProduto = new ServicesDBProduto();
+            ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
             Produto produto = new Produto();
             List<string> list_Setores = new List<string>();
+            int codigo_setor = 0;
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Text files (*.csv)|*.csv|All files (*.*)|*.*";
             string linha = "";
@@ -58,7 +53,7 @@ namespace Pizzaria1
                         linhaseparada = linha.Split(';');
                         string resultado = string.Format(
                         @"Linha - 
-                        Código: {0}
+                        Produto: {0}
                         Setor: {1}", 
                         linhaseparada[0], linhaseparada[1]);
                         cont = cont + 1;
@@ -66,12 +61,21 @@ namespace Pizzaria1
                         var temnalista = list_Setores.IndexOf(linhaseparada[1]);
                         if (temnalista == -1)
                         {
+                            if(servicesDBSetor.Busca_Setor(linhaseparada[1]) == 0)
+                            {
+                                servicesDBSetor.Salvar_Setor(linhaseparada[1]);
+                                codigo_setor = servicesDBSetor.Busca_Setor(linhaseparada[1]);
+                            }
+                            else
+                            {
+                                codigo_setor = servicesDBSetor.Busca_Setor(linhaseparada[1]);
+                            }
                             list_Setores.Add(linhaseparada[1]);
                         }
                         produto = servicesDBProduto.BuscarProduto(linhaseparada[0]);
                         if (produto == null)
                         {
-                            servicesDBProduto.Salvar(linhaseparada[0], linhaseparada[1]);
+                            servicesDBProduto.Salvar(linhaseparada[0], linhaseparada[1],codigo_setor);
                         }
                         else
                         {
@@ -79,7 +83,7 @@ namespace Pizzaria1
                         }
                     }
                     MessageBox.Show("Quantidade de Produtos Importados: " + cont.ToString());
-                    MessageBox.Show("Quantidade de Setores Importados: " + list_Setores.Count);
+                    MessageBox.Show("Quantidade de Setores Encontrados: " + list_Setores.Count);
                 }
             }
         }

@@ -13,6 +13,7 @@ namespace ColetorAppServidor.Models
         public string prod_Setor { get; set; }
         public Boolean prod_Inativo { get; set; }
         public int prod_Quant { get; set; }
+        public virtual Setor setor { get; set; }
 
         public Produto()
         {

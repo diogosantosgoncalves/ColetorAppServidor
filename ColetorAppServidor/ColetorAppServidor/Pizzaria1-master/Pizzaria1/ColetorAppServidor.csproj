@@ -61,9 +61,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\Setor.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Services\Conexao.cs" />
     <Compile Include="Services\ServicesDBProduto.cs" />
+    <Compile Include="Services\ServicesDBSetor.cs" />
     <Compile Include="Services\ServicesDBUsuario.cs" />
     <Compile Include="Views\TelaCadastrarUsuario.xaml.cs">
       <DependentUpon>TelaCadastrarUsuario.xaml</DependentUpon>
