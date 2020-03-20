@@ -60,7 +60,12 @@ namespace Pizzaria1
             TelaCadastrarUsuario tela1 = new TelaCadastrarUsuario(usu.usu_nome, usu.usu_senha, usu.usu_id,usu.usu_inativo);
             tela1.Show();           
         }
-    
+        public void bt_TelaPermissaoUsuario(object sender, RoutedEventArgs e)
+        {
+            int codigo = PegarCodigo();
+            TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo);
+            tela1.Show();
+        }
         public int PegarCodigo()
         {
             var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();

@@ -69,23 +69,23 @@
                             <Image Name="ImagemEditar" HorizontalAlignment="Left" Height="25" Width="50" Source="{Binding ImagemEditar}"  />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn Header="Excluir2" Width="100">
+                </DataGridTemplateColumn>-->
+                <DataGridTemplateColumn Header="Permissao" Width="120" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
                                 <Button
                                     Name="PreviewNotificationPopup"                                                         
-                                    HorizontalAlignment="Center"
+                                    HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Click="bt_ExcluiUsuario"                                  
+                                    Click="bt_TelaPermissaoUsuario" Content="Permissão"                                
                                     IsEnabled="True" BorderBrush="White">
-                                    <Image Width="24" Source="excluir.png" />
+                                    
                                 </Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn> -->
+                </DataGridTemplateColumn> 
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
