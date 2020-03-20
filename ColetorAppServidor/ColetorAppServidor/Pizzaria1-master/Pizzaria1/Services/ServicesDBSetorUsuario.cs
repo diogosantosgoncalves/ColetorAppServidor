@@ -45,12 +45,13 @@ namespace ColetorAppServidor.Services
                 conexao.desconectar();
             }
         }
-        public void Salvar_Setor(string nome)
+        public void Salvar(int codigousuario,int codigosetor)
         {
             try
             {
-                sqlCommand.CommandText = "insert into SetorUsuario values(@nome)";
-                sqlCommand.Parameters.AddWithValue("@nome", nome);
+                sqlCommand.CommandText = "insert into SetorUsuario(setorusuario_usu_id,setorusuario_setor_id) values(@usuario,@setor)";
+                sqlCommand.Parameters.AddWithValue("@usuario", codigousuario);
+                sqlCommand.Parameters.AddWithValue("@setor", codigosetor);
                 sqlCommand.Connection = conexao.conectar();
                 sqlCommand.ExecuteNonQuery();
             }
@@ -64,8 +65,9 @@ namespace ColetorAppServidor.Services
                 conexao.desconectar();
             }
         }
-        public SetorUsuario Busca_Setor(int usu_id)
+        public List<SetorUsuario> Busca_Setor(int usu_id)
         {
+            List<SetorUsuario> lista_setorUsuarios = new List<SetorUsuario>();
             SetorUsuario setorUsuario = new SetorUsuario();
             try
             {
@@ -75,20 +77,22 @@ namespace ColetorAppServidor.Services
                 sqlCommand.Parameters.AddWithValue("@id", usu_id);
                 sqlCommand.Connection = conexao.conectar();
                 sqldataReader = sqlCommand.ExecuteReader();
-                if (sqldataReader.Read())
+                while (sqldataReader.Read())
                 {
-                    setorUsuario.setorusuario_id = int.Parse(sqldataReader["usu_id"].ToString());
-                    setorUsuario.Usuario.usu_id = int.Parse(sqldataReader["setorusuario_usu_id"].ToString());
-                    setorUsuario.Usuario.usu_nome = sqldataReader["setor_nome"].ToString();
-                    return setorUsuario;
+                    setorUsuario.setorusuario_id = int.Parse(sqldataReader["setorusuario_id"].ToString());
+                    setorUsuario.setorusuario_usu_id = int.Parse(sqldataReader["setorusuario_usu_id"].ToString());
+                    setorUsuario.setorusuario_setor_id = int.Parse(sqldataReader["setorusuario_setor_id"].ToString());
+                    setorUsuario.Usuario.usu_id = int.Parse(sqldataReader["usu_id"].ToString());
+                    setorUsuario.Usuario.usu_nome = sqldataReader["usu_nome"].ToString();
+                    setorUsuario.Setor.setor_id = int.Parse(sqldataReader["setor_id"].ToString());
+                    setorUsuario.Setor.setor_nome = sqldataReader["setor_nome"].ToString();
+                    lista_setorUsuarios.Add(setorUsuario);
                 }
-                else
-                {
-                    return null;
-                }
+            return lista_setorUsuarios;
             }
             catch (Exception ex)
             {
+
                 throw new Exception(ex.Message);
             }
             finally

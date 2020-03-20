@@ -5,18 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="TelaCadastrarUsuario" Height="350" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="TelaCadastrarUsuario" Height="580" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Background="AliceBlue">
         <Label Content="Permissão de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="100,0,70,20"/>
         <TextBox Name="txt_id" Visibility="Hidden" />
-        <Label Content="Nome Usuario: " />
-        <TextBox Name="txt_NomeUsuario" />
         <Label Content="Codigo Usuario: " />
         <TextBox Name="txt_CodigoUsuario" />
-        <Label Content="Inativo" />
-        <CheckBox IsChecked="False" Name="txt_inativo" />
-    
-        <Button Content="Cadastrar" Name="bt_CadastrarUsuario" Width="150" Margin="20" />
+        <Label Content="Nome Usuario: " />
+        <TextBox Name="txt_NomeUsuario" />
+
+        <Label Content="Todas as Permissões" />
+        <StackPanel Margin="10">
+            <ComboBox Name="cb_setor" Text="Selecione" >
+            </ComboBox>
+        </StackPanel>
+        <Button Click="bt_CadastrarPermissao" Content="Cadastrar Permissão" Name="bt_CadastrarUsuario" Width="170" Margin="20" />
+
+        <StackPanel Margin="10">
+            <Label Content="Permissões do Usuário Cadastradas" />
+            <ListBox x:Name="lb_setores">
+
+            </ListBox>
+        </StackPanel>
 
     </StackPanel>
 </Window>

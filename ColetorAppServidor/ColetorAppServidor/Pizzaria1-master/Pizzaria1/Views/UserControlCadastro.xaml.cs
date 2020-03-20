@@ -63,7 +63,7 @@ namespace Pizzaria1
         public void bt_TelaPermissaoUsuario(object sender, RoutedEventArgs e)
         {
             int codigo = PegarCodigo();
-            TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo);
+            TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo,PegarNome());
             tela1.Show();
         }
         public int PegarCodigo()
@@ -73,6 +73,14 @@ namespace Pizzaria1
             System.Reflection.PropertyInfo[] props = t.GetProperties();
             string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
             return int.Parse(propertyValue);
+        }
+        public string PegarNome()
+        {
+            var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
+            Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
+            System.Reflection.PropertyInfo[] props = t.GetProperties();
+            string propertyValue = props[1].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
+            return propertyValue;
         }
     }
 }
