@@ -11,12 +11,12 @@ namespace ColetorAppServidor.Models
         public SetorUsuario()
         {
             Usuario = new Usuario();
-            Setor = new Setor();
+            Setor = new List<Setor>();
         }
         public int setorusuario_id { get; set; }
         public int setorusuario_setor_id { get; set; }
         public int setorusuario_usu_id { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual Setor Setor { get; set; }
+        public virtual List<Setor> Setor { get; set; }
     }
 }

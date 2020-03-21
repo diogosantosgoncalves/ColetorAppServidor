@@ -23,7 +23,7 @@ namespace ColetorAppServidor.Views
     /// </summary>
     public partial class TelaPermissaoUsuario : Window
     {
-        public int codigosetor;
+        public string nomecorreto;
         ServicesDBSetorUsuario servicesDBSetorUsuario = new ServicesDBSetorUsuario();
         List<SetorUsuario> lista_setorUsuarios = new List<SetorUsuario>();
         ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
@@ -36,28 +36,38 @@ namespace ColetorAppServidor.Views
         {
 
             InitializeComponent();
+            // Carrega todos os setores
             List<String> listasetorescompletos = new List<String>();
             foreach (var setor in servicesDBSetor.Listar_Setor())
             {
                 listasetorescompletos.Add(setor.setor_nome);
             }
+            cb_setor.ItemsSource = listasetorescompletos;
+
+            // Carrega os setores do Usuário
             List<String> lista_setor = new List<String>();
             lista_setorUsuarios = servicesDBSetorUsuario.Busca_Setor(codigo);
-            //txt_CodigoUsuario.Text = setorUsuario.setorusuario_id.ToString();
+
             txt_CodigoUsuario.Text = codigo.ToString();
             txt_NomeUsuario.Text = nome;
-            foreach(var i in lista_setorUsuarios)
+            
+            foreach (var i in lista_setorUsuarios)
             {
-                lista_setor.Add(i.Setor.setor_nome);
-                //txt_NomeUsuario.Text = i.Usuario.usu_nome;
-                txt_CodigoUsuario.Text = i.Usuario.usu_id.ToString();
+                foreach (var o in i.Setor)
+                {
+                    lista_setor.Add(o.setor_nome);
+                }
+                
+                lb_setores.ItemsSource = lista_setor;
+                return;
+                //lista_setor.Add(i.Setor.setor_nome);
             }
-            cb_setor.ItemsSource = listasetorescompletos;
-            lb_setores.ItemsSource = lista_setor;
+            //Preenche as listas
+
         }
         public void bt_CadastrarPermissao(object sender, RoutedEventArgs e)
         {
-            //public int codigosetor;
+            int codigosetor;
             if(cb_setor.SelectedIndex >= 0)
             {
                 codigosetor = cb_setor.SelectedIndex + 1;
@@ -70,6 +80,32 @@ namespace ColetorAppServidor.Views
             TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(int.Parse(txt_CodigoUsuario.Text), txt_NomeUsuario.Text);
             tela1.Show();
         }
+        public void bt_DeletarPermissao(object sender, RoutedEventArgs e)
+        {
+            int nomesetor;
+            try
+            {
+                foreach (object o in lb_setores.SelectedItems)
+                    nomecorreto =(o as String).ToString();
 
+                if (lb_setores.SelectedIndex >= 0)
+                {
+                    nomesetor = lb_setores.SelectedIndex + 1;
+                    servicesDBSetorUsuario.Deletar(int.Parse(txt_CodigoUsuario.Text), nomecorreto);
+                    MessageBox.Show("Permissão deletada com Sucesso");
+                }
+                else
+                {
+                    MessageBox.Show("Selecione alguma permissão");
+                }
+                TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(int.Parse(txt_CodigoUsuario.Text), txt_NomeUsuario.Text);
+                tela1.Show();
+            }
+            catch(Exception ex)
+            {
+                // throw new Exception(ex.Message);
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
