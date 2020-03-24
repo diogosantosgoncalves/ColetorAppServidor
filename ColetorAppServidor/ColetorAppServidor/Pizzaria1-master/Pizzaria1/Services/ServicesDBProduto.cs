@@ -82,7 +82,7 @@ namespace ColetorAppServidor.Services
                     produto.prod_Codigo = int.Parse(sqldataReader[0].ToString());
                     produto.prod_Nome = sqldataReader[1].ToString();
                     produto.prod_Setor = sqldataReader[2].ToString();
-                    produto.setor.setor_id = sqldataReader.GetInt32(5);
+                    produto.setor.setor_id = int.Parse(sqldataReader[5].ToString());
                     return produto;
                 }
                 else

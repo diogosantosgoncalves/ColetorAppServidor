@@ -17,7 +17,7 @@ namespace ColetorAppServidor.Models
 
         public Produto()
         {
-
+            setor = new Setor();
         }
 
 

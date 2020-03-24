@@ -30,7 +30,7 @@
         <TextBox Margin="10" FontSize="18" Name="txt_nomeUsuario" Grid.Row="2" Grid.Column="1" />
         <Button Name="bt_ConsultaUsuario" Click="ConsultarUsuario" Content="Consultar"  Grid.Row="2" Grid.Column="2" />
 
-        <DataGrid MaxHeight="500" Width="1000"  Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
+        <DataGrid MaxWidth="750" MaxHeight="350" IsReadOnly="True" Name="dtgr_ConsultaUsuario" AlternationCount="2" AlternatingRowBackground="LightBlue" Grid.Row="3" Grid.ColumnSpan="3" AutoGenerateColumns="False">
             <DataGrid.Columns>
              
                 <DataGridTextColumn  Foreground="Red" Width="70" Header="Código" Binding="{Binding usu_id}"/>
