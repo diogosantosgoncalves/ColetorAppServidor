@@ -5,22 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="Tela de Permissão de Usuario" Height="580" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Tela de Permissão de Usuário" Height="580" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Background="AliceBlue">
 
             <Label Content="Permissão de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="80,0,70,0"/>
             <TextBox Name="txt_id" Visibility="Hidden" />
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-          <Label Content="Codigo Usuario: " />
+          <Label Content="Código Usuário: " />
             <TextBox Name="txt_CodigoUsuario" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <Label Content="Nome Usuario: " />
+            <Label Content="Nome Usuário: " />
             <TextBox Name="txt_NomeUsuario"  />
         </StackPanel>
         <Label Content="Todas as Permissões" />
         <StackPanel Margin="10">
-            <ComboBox Name="cb_setor" Text="Selecione" >
+            <ComboBox  Name="cb_setor" SelectedValuePath="setor_id">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontWeight="Bold" Text="{Binding setor_id}" Width="50"/>
+                            <TextBlock Text="{Binding setor_nome}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </StackPanel>
         <Button Click="bt_CadastrarPermissao" Content="Cadastrar Permissão" Name="bt_CadastroPermissao" Width="170" Margin="20" />

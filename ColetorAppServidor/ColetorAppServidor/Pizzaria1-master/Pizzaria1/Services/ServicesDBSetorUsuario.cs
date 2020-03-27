@@ -89,6 +89,7 @@ namespace ColetorAppServidor.Services
         }
         public List<SetorUsuario> Busca_Setor(int usu_id)
         {
+            bool achou;
             List<SetorUsuario> lista_setorUsuarios = new List<SetorUsuario>();
             SetorUsuario setorUsuario = new SetorUsuario();
             Setor setor = new Setor();
@@ -96,10 +97,14 @@ namespace ColetorAppServidor.Services
             {
                 sqlCommand.CommandText = "select * from SetorUsuario su " +
                 "inner join Usuario u on u.usu_id = su.setorusuario_usu_id inner join Setor s on " +
-                "s.setor_id = su.setorusuario_setor_id where usu_id = @id";
+                "s.setor_id = su.setorusuario_setor_id where su.setorusuario_usu_id = @id";
                 sqlCommand.Parameters.AddWithValue("@id", usu_id);
                 sqlCommand.Connection = conexao.conectar();
                 sqldataReader = sqlCommand.ExecuteReader();
+                //if (!sqldataReader.Read())
+                //{
+                //    achou = false;
+               // }
                 while (sqldataReader.Read())
                 {
                     Setor setor1 = new Setor();
@@ -117,7 +122,15 @@ namespace ColetorAppServidor.Services
                     //return lista_setorUsuarios;
                     //return students;
                 }
-                return lista_setorUsuarios;
+               // if (achou == true)
+               // {
+                    return lista_setorUsuarios;
+               // }
+               // else
+               // {
+               //     return null;
+               // }
+
             }
             catch (Exception ex)
             {

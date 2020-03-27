@@ -24,6 +24,7 @@ namespace ColetorAppServidor.Views
     public partial class TelaPermissaoUsuario : Window
     {
         public string nomecorreto;
+        int codigoSelecionado;
         ServicesDBSetorUsuario servicesDBSetorUsuario = new ServicesDBSetorUsuario();
         List<SetorUsuario> lista_setorUsuarios = new List<SetorUsuario>();
         ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
@@ -32,17 +33,12 @@ namespace ColetorAppServidor.Views
         {
             InitializeComponent();
         }
-        public TelaPermissaoUsuario(int codigo,string nome)
+        public TelaPermissaoUsuario(int codigo, string nome)
         {
 
             InitializeComponent();
             // Carrega todos os setores
-            List<String> listasetorescompletos = new List<String>();
-            foreach (var setor in servicesDBSetor.Listar_Setor())
-            {
-                listasetorescompletos.Add(setor.setor_nome);
-            }
-            cb_setor.ItemsSource = listasetorescompletos;
+            cb_setor.ItemsSource = servicesDBSetor.Listar_Setor();
 
             // Carrega os setores do Usuário
             List<String> lista_setor = new List<String>();
@@ -60,28 +56,40 @@ namespace ColetorAppServidor.Views
                 
                 lb_setores.ItemsSource = lista_setor;
                 return;
-                //lista_setor.Add(i.Setor.setor_nome);
             }
-            //Preenche as listas
 
         }
         public void bt_CadastrarPermissao(object sender, RoutedEventArgs e)
         {
+            codigoSelecionado = Convert.ToInt32(cb_setor.SelectedValue);
+
             int codigosetor;
             if(cb_setor.SelectedIndex >= 0)
             {
-                codigosetor = cb_setor.SelectedIndex + 1;
-                servicesDBSetorUsuario.Salvar(int.Parse(txt_CodigoUsuario.Text), codigosetor);
+                codigosetor = codigoSelecionado;
+                // verifica se já está cadastrado
+                if(servicesDBSetorUsuario.Busca_Setor(int.Parse(txt_CodigoUsuario.Text)).Count != 0)
+                {
+                    MessageBox.Show("Permissão já cadastrada!");
+                }
+                else
+                {
+                    servicesDBSetorUsuario.Salvar(int.Parse(txt_CodigoUsuario.Text), codigosetor);
+                }
+                
             }
             else
             {
                 MessageBox.Show("Selecione alguma permissão");
             }
+            this.Close();
             TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(int.Parse(txt_CodigoUsuario.Text), txt_NomeUsuario.Text);
             tela1.Show();
         }
         public void bt_DeletarPermissao(object sender, RoutedEventArgs e)
         {
+
+            codigoSelecionado = Convert.ToInt32(cb_setor.SelectedValue);
             int nomesetor;
             try
             {
@@ -90,7 +98,7 @@ namespace ColetorAppServidor.Views
 
                 if (lb_setores.SelectedIndex >= 0)
                 {
-                    nomesetor = lb_setores.SelectedIndex + 1;
+                    nomesetor = codigoSelecionado;
                     servicesDBSetorUsuario.Deletar(int.Parse(txt_CodigoUsuario.Text), nomecorreto);
                     MessageBox.Show("Permissão deletada com Sucesso");
                 }
@@ -98,12 +106,12 @@ namespace ColetorAppServidor.Views
                 {
                     MessageBox.Show("Selecione alguma permissão");
                 }
+                this.Close();
                 TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(int.Parse(txt_CodigoUsuario.Text), txt_NomeUsuario.Text);
                 tela1.Show();
             }
             catch(Exception ex)
             {
-                // throw new Exception(ex.Message);
                 MessageBox.Show(ex.Message);
             }
         }

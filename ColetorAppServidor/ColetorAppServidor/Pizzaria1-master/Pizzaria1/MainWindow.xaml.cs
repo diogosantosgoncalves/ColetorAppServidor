@@ -65,17 +65,9 @@ namespace Pizzaria1
                     break;
                 case 5:
                     var result = MessageBox.Show("Deseja sair do Aplicativo?", "Sair", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
-                    switch (result)
+                    if (result == MessageBoxResult.Yes)
                     {
-                        case MessageBoxResult.Yes:
-                            Application.Current.Shutdown();
-                            break;
-                        case MessageBoxResult.No:
-                            //MessageBox.Show("Oh well, too bad!", "My App");
-                            break;
-                        case MessageBoxResult.Cancel:
-                            //MessageBox.Show("Nevermind then...", "My App");
-                            break;
+                    Application.Current.Shutdown();
                     }
                     break;
                 default:

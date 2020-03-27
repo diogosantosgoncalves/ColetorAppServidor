@@ -50,7 +50,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTemplateColumn Width="100" Header="Delete" IsReadOnly="True">
+                <DataGridTemplateColumn Width="100" Header="Deletar" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
                             <DockPanel HorizontalAlignment="Left">
@@ -70,7 +70,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>-->
-                <DataGridTemplateColumn Header="Permissao" Width="120" >
+                <DataGridTemplateColumn Header="Permissão" Width="120" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel>
