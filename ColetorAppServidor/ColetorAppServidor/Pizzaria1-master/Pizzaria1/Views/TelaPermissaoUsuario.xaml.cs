@@ -23,17 +23,16 @@ namespace ColetorAppServidor.Views
     /// </summary>
     public partial class TelaPermissaoUsuario : Window
     {
-        public string nomecorreto;
+        public string nome_usuario;
         int codigoSelecionado;
         ServicesDBSetorUsuario servicesDBSetorUsuario = new ServicesDBSetorUsuario();
         List<SetorUsuario> lista_setorUsuarios = new List<SetorUsuario>();
         ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
-        SetorUsuario setorUsuario = new SetorUsuario();
         public TelaPermissaoUsuario()
         {
             InitializeComponent();
         }
-        public TelaPermissaoUsuario(int codigo, string nome)
+        public TelaPermissaoUsuario(int codigo_usuario, string nome)
         {
 
             InitializeComponent();
@@ -42,9 +41,9 @@ namespace ColetorAppServidor.Views
 
             // Carrega os setores do Usuário
             List<String> lista_setor = new List<String>();
-            lista_setorUsuarios = servicesDBSetorUsuario.Busca_Setor(codigo);
+            lista_setorUsuarios = servicesDBSetorUsuario.BuscaSetorPorUsuario(codigo_usuario);
 
-            txt_CodigoUsuario.Text = codigo.ToString();
+            txt_CodigoUsuario.Text = codigo_usuario.ToString();
             txt_NomeUsuario.Text = nome;
             
             foreach (var i in lista_setorUsuarios)
@@ -64,19 +63,20 @@ namespace ColetorAppServidor.Views
             codigoSelecionado = Convert.ToInt32(cb_setor.SelectedValue);
 
             int codigosetor;
+            // Verifica se tem alguma combo selecionada
             if(cb_setor.SelectedIndex >= 0)
             {
                 codigosetor = codigoSelecionado;
                 // verifica se já está cadastrado
-                if(servicesDBSetorUsuario.Busca_Setor(int.Parse(txt_CodigoUsuario.Text)).Count != 0)
+                if(servicesDBSetorUsuario.BuscaSetorPorUsuarioeSetor(int.Parse(txt_CodigoUsuario.Text), codigosetor).Count != 0)
                 {
                     MessageBox.Show("Permissão já cadastrada!");
+                    return;
                 }
                 else
                 {
                     servicesDBSetorUsuario.Salvar(int.Parse(txt_CodigoUsuario.Text), codigosetor);
                 }
-                
             }
             else
             {
@@ -94,12 +94,12 @@ namespace ColetorAppServidor.Views
             try
             {
                 foreach (object o in lb_setores.SelectedItems)
-                    nomecorreto =(o as String).ToString();
+                    nome_usuario = (o as String).ToString();
 
                 if (lb_setores.SelectedIndex >= 0)
                 {
                     nomesetor = codigoSelecionado;
-                    servicesDBSetorUsuario.Deletar(int.Parse(txt_CodigoUsuario.Text), nomecorreto);
+                    servicesDBSetorUsuario.Deletar(int.Parse(txt_CodigoUsuario.Text), nome_usuario);
                     MessageBox.Show("Permissão deletada com Sucesso");
                 }
                 else
