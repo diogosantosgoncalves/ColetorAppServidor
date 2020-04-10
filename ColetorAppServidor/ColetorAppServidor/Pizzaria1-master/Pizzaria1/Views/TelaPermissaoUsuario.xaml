@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="Tela de Permissão de Usuário" Height="580" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Tela de Permissão de Usuário" Height="580" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Topmost="True">
     <StackPanel Background="AliceBlue">
 
             <Label Content="Permissão de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="80,0,70,0"/>

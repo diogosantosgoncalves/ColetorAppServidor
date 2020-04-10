@@ -31,7 +31,7 @@ namespace Pizzaria1
         public void CadastrarUsuario(object sender, RoutedEventArgs e)
         {
             TelaCadastrarUsuario tela1 = new TelaCadastrarUsuario();
-            tela1.Show();
+            tela1.ShowDialog();
         }
         public void ConsultarUsuario(object sender, RoutedEventArgs e)
         {
@@ -64,7 +64,7 @@ namespace Pizzaria1
         {
             int codigo = PegarCodigo();
             TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo,PegarNome());
-            tela1.Show();
+            tela1.ShowDialog();
         }
         public int PegarCodigo()
         {

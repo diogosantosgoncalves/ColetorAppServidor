@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TelaCadastrarUsuario" Height="350" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Background="AliceBlue">
-        <Label Content="Cadastrar Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="100,0,90,20"/>
+        <Label Content="Cadastro de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="100,0,90,20"/>
         <TextBox Name="txt_id" Visibility="Hidden" />
         <Label Content="Nome: " />
         <TextBox Name="txt_NomeUsuario" />

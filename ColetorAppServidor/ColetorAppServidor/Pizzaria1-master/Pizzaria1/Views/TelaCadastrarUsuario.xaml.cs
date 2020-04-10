@@ -42,6 +42,12 @@ namespace ColetorAppServidor.Views
         {
             Usuario usuario = new Usuario();
             ServicesDBUsuario servicesDBUsuario = new ServicesDBUsuario();
+            if (string.IsNullOrEmpty(txt_NomeUsuario.Text) || string.IsNullOrEmpty(txt_SenhaUsuario.Password))
+            {
+                MessageBox.Show("Informe um usuário ou senha");
+                return;
+            }
+
             if(bt_CadastrarUsuario.Content.ToString() == "Alterar")
             {
                 usuario.usu_id = int.Parse(txt_id.Text);

@@ -110,7 +110,7 @@ namespace ColetorAppServidor.Services
                 sqlcommand.Parameters.Clear();
                 con.desconectar();
                 sqldataReader.Close();
-                Statusmessagem = "Usuario Deletado!";
+                Statusmessagem = "Usuário Deletado!";
             }
             catch(SqlException ex)
             {
@@ -137,6 +137,36 @@ namespace ColetorAppServidor.Services
             con.desconectar();
             sqldataReader.Close();
             return usuario;
+        }
+        public int Usuarios_Ativos()
+        {
+            try
+            {
+                int cont_usuario_ativos = 0;
+
+                sqlcommand.CommandText = "select * from Usuario where usu_inativo = 0";
+                sqlcommand.Connection = con.conectar();
+                sqldataReader = sqlcommand.ExecuteReader();
+                while (sqldataReader.Read() == true)
+                {
+                    cont_usuario_ativos++;
+                }
+                return cont_usuario_ativos;
+
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                sqlcommand.Parameters.Clear();
+                sqldataReader.Close();
+                con.desconectar();
+            }
+
+
+
         }
     }
 }
