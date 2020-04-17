@@ -27,9 +27,11 @@ namespace ColetorAppServidor.Services
                 while (sqldataReader.Read())
                 {
                     Produto produto = new Produto();
+                    produto.prod_Codigo = int.Parse(sqldataReader["prod_codigo"].ToString());
                     produto.prod_Nome = sqldataReader["prod_nome"].ToString();
                     produto.prod_Quant = int.Parse(sqldataReader["prod_quant"].ToString());
                     produto.prod_Setor = sqldataReader["prod_setor"].ToString();
+                    produto.prod_Inativo = sqldataReader.GetBoolean(3);
                     list.Add(produto);
                 }
                 sqlcommand.Parameters.Clear();

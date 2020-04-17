@@ -24,5 +24,23 @@ namespace ColetorAppServidor.Views
         {
             InitializeComponent();
         }
+
+        private void bt_RelatorioProduto(object sender, RoutedEventArgs e)
+        {
+            RelatorioProduto tela = new RelatorioProduto();
+            tela.Show();
+        }
+
+        private void bt_RelatorioUsuario(object sender, RoutedEventArgs e)
+        {
+            RelatorioUsuario tela = new RelatorioUsuario();
+            tela.Show();
+        }
+
+        private void bt_RelatorioInventario(object sender, RoutedEventArgs e)
+        {
+            RelatorioInventario tela = new RelatorioInventario();
+            tela.Show();
+        }
     }
 }

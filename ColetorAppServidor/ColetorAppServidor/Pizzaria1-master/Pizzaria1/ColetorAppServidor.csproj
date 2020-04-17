@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,8 +68,11 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.3.1.953, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.3.1.953\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -79,9 +82,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -96,10 +101,20 @@
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Services\Conexao.cs" />
     <Compile Include="Services\ServicesDBInventario.cs" />
+    <Compile Include="Services\ServicesDBMovimentoProduto.cs" />
     <Compile Include="Services\ServicesDBProduto.cs" />
     <Compile Include="Services\ServicesDBSetor.cs" />
     <Compile Include="Services\ServicesDBSetorUsuario.cs" />
     <Compile Include="Services\ServicesDBUsuario.cs" />
+    <Compile Include="Views\RelatorioInventario.xaml.cs">
+      <DependentUpon>RelatorioInventario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelatorioProduto.xaml.cs">
+      <DependentUpon>RelatorioProduto.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelatorioUsuario.xaml.cs">
+      <DependentUpon>RelatorioUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaPermissaoUsuario.xaml.cs">
       <DependentUpon>TelaPermissaoUsuario.xaml</DependentUpon>
     </Compile>
@@ -133,6 +148,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\RelatorioInventario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RelatorioProduto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RelatorioUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TelaPermissaoUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,8 +207,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\RelatorioMovimentoProduto.rdlc" />
+    <EmbeddedResource Include="Relatorios\RelatorioProduto.rdlc" />
+    <EmbeddedResource Include="Relatorios\RelatorioUsuario.rdlc" />
     <None Include="ColetorAppServidor_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ColetorAppServidor.Models.Inventario.datasource" />
+    <None Include="Properties\DataSources\ColetorAppServidor.Models.Movimento_Produto.datasource" />
+    <None Include="Properties\DataSources\ColetorAppServidor.Models.Produto.datasource" />
+    <None Include="Properties\DataSources\ColetorAppServidor.Models.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -22,15 +22,15 @@ namespace Pizzaria1
 {
     public partial class UserControlImportarTxt : UserControl
     {
+        ServicesDBProduto servicesDBProduto = new ServicesDBProduto();
+        ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
+        Produto produto = new Produto();
         public UserControlImportarTxt()
         {
             InitializeComponent();
         }
         public void importar_Arquivo_Txt(object sender, RoutedEventArgs e)
         {
-            ServicesDBProduto servicesDBProduto = new ServicesDBProduto();
-            ServicesDBSetor servicesDBSetor = new ServicesDBSetor();
-            Produto produto = new Produto();
             List<string> list_Setores = new List<string>();
             int codigo_setor = 0;
 
@@ -57,7 +57,7 @@ namespace Pizzaria1
                         Setor: {1}", 
                         linhaseparada[0], linhaseparada[1]);
                         cont = cont + 1;
-                        //Conta os setores
+                        //Conta os setores e Salvo no banco caso não esteja Cadastrado
                         var temnalista = list_Setores.IndexOf(linhaseparada[1]);
                         if (temnalista == -1)
                         {
@@ -72,6 +72,7 @@ namespace Pizzaria1
                             }
                             list_Setores.Add(linhaseparada[1]);
                         }
+                        // Se o produto já estiver no Banco de Dados eu apenas Ativo
                         produto = servicesDBProduto.BuscarProduto(linhaseparada[0]);
                         if (produto == null)
                         {

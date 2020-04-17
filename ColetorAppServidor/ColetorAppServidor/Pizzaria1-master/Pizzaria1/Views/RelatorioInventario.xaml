@@ -1,0 +1,19 @@
+﻿<Window x:Class="ColetorAppServidor.Views.RelatorioInventario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColetorAppServidor.Views"
+        mc:Ignorable="d"
+        Title="RelatorioInventario" Height="450" Width="800">
+    <Grid>
+        <Button Name="bt_Carregar" Click="bt_CarregarRelatorio" Content="Carregar" HorizontalAlignment="Left" Margin="548,22,0,0" VerticalAlignment="Top" Width="97"/>
+        <ListBox HorizontalAlignment="Left" Height="100" Margin="148,22,0,0" VerticalAlignment="Top" Width="330" RenderTransformOrigin="0.42,0.25"/>
+        <Label Content="Inventário:" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="73"/>
+        <WindowsFormsHost HorizontalAlignment="Left" Height="348" Margin="10,63,0,0" VerticalAlignment="Top" Width="774">
+            <rv:ReportViewer x:Name="ReportViewer" />
+        </WindowsFormsHost>
+
+    </Grid>
+</Window>

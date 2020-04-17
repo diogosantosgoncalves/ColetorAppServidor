@@ -27,6 +27,8 @@ namespace ColetorAppServidor.Views
     {
         SqlCommand cmd = new SqlCommand();
         Conexao conexao = new Conexao();
+        List<Produto> list_produtos = new List<Produto>();
+        ServicesDBProduto dBProduto = new ServicesDBProduto();
         public UserControlExportarTxt()
         {
             InitializeComponent();
@@ -37,8 +39,6 @@ namespace ColetorAppServidor.Views
             saveFileDialog.Filter = "file CSV (*.csv)|*.csv|Text file (*.txt)|*.txt";
             if (saveFileDialog.ShowDialog() == true)
             {
-                List<Produto> list_produtos = new List<Produto>();
-                ServicesDBProduto dBProduto = new ServicesDBProduto();
                 list_produtos = dBProduto.Listar_Produto();
 
                 using (StreamWriter sw = File.CreateText(saveFileDialog.FileName))

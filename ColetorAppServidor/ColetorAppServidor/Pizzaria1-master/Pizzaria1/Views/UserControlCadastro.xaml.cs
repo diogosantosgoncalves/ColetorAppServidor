@@ -22,11 +22,11 @@ namespace Pizzaria1
 {
     public partial class UserControlCadastro : UserControl
     {
+        ServicesDBUsuario dBUsuario = new ServicesDBUsuario();
         public UserControlCadastro()
         {
             InitializeComponent();
             txt_nomeUsuario.Focus();
-            
         }
         public void CadastrarUsuario(object sender, RoutedEventArgs e)
         {
@@ -35,17 +35,14 @@ namespace Pizzaria1
         }
         public void ConsultarUsuario(object sender, RoutedEventArgs e)
         {
-            ServicesDBUsuario usuario = new ServicesDBUsuario();
-            dtgr_ConsultaUsuario.ItemsSource = usuario.BuscarUsuario(txt_nomeUsuario.Text.ToString());
+            dtgr_ConsultaUsuario.ItemsSource = dBUsuario.BuscarUsuario(txt_nomeUsuario.Text.ToString());
         }
         public void bt_ExcluiUsuario(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show("Deseja realmente excluir esse Usuário?", "Exclusão", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             if(result == MessageBoxResult.Yes)
             {
-                
-                ServicesDBUsuario dBUsuario = new ServicesDBUsuario();
-                dBUsuario.Excluir(PegarCodigo());
+                dBUsuario.Excluir(int.Parse(PegarLinhaGrid(0)));
                 MessageBox.Show(dBUsuario.Statusmessagem);
                 dtgr_ConsultaUsuario.ItemsSource = dBUsuario.BuscarUsuario(txt_nomeUsuario.Text.ToString());
             }
@@ -53,33 +50,22 @@ namespace Pizzaria1
         
         public void bt_EditarUsuario(object sender, RoutedEventArgs e)
         {
-            Usuario usu = new Usuario();
-            ServicesDBUsuario dBUsuario = new ServicesDBUsuario();
-            usu = dBUsuario.Editar(PegarCodigo());
-            
+            Usuario usu =  dBUsuario.Editar(int.Parse(PegarLinhaGrid(0)));
             TelaCadastrarUsuario tela1 = new TelaCadastrarUsuario(usu.usu_nome, usu.usu_senha, usu.usu_id,usu.usu_inativo);
-            tela1.Show();           
+            tela1.ShowDialog();           
         }
         public void bt_TelaPermissaoUsuario(object sender, RoutedEventArgs e)
         {
-            int codigo = PegarCodigo();
-            TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo,PegarNome());
+            int codigo = int.Parse(PegarLinhaGrid(0));
+            TelaPermissaoUsuario tela1 = new TelaPermissaoUsuario(codigo, PegarLinhaGrid(1));
             tela1.ShowDialog();
         }
-        public int PegarCodigo()
+        public string PegarLinhaGrid(int linha)
         {
             var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
             Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
             System.Reflection.PropertyInfo[] props = t.GetProperties();
-            string propertyValue = props[0].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
-            return int.Parse(propertyValue);
-        }
-        public string PegarNome()
-        {
-            var selectedItem = dtgr_ConsultaUsuario.SelectedItem.ToString();
-            Type t = dtgr_ConsultaUsuario.SelectedItem.GetType();
-            System.Reflection.PropertyInfo[] props = t.GetProperties();
-            string propertyValue = props[1].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
+            string propertyValue = props[linha].GetValue(dtgr_ConsultaUsuario.SelectedItem, null).ToString();
             return propertyValue;
         }
     }

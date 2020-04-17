@@ -5,13 +5,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:ColetorAppServidor.Views"
       mc:Ignorable="d" 
-      Height="1000" Width="450"
-      >
+      Height="1000" Width="750">
 
-    <Grid>
+    <Grid Background="AliceBlue" Margin="0 0 0 0" MaxHeight="500" VerticalAlignment="Top" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -20,7 +19,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Configurações" Grid.ColumnSpan="3"
-            Grid.Row="0" Grid.Column="0" FontSize="40"/>
+        <Label Content="Relatórios" Grid.ColumnSpan="3"
+            Grid.Row="0" Grid.Column="0" FontSize="40" Margin="0 0 0 20"/>
+        <Button Content="Produtos" Click="bt_RelatorioProduto" MaxHeight="100" MaxWidth="200" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" Margin="0 0 0 20"/>
+        <Button Content="Usuários" Click="bt_RelatorioUsuario" Grid.Column="0" MaxWidth="200" Grid.Row="2" Grid.ColumnSpan="3" Margin="0 0 0 20"/>
+        <Button Content="Inventário" Click="bt_RelatorioInventario" Grid.Column="0" MaxWidth="200" Grid.Row="3" Grid.ColumnSpan="3" />
     </Grid>
 </UserControl>
