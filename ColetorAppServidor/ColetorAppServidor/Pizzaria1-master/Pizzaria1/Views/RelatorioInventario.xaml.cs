@@ -30,8 +30,8 @@ namespace ColetorAppServidor.Views
         public void bt_CarregarRelatorio(object sender, RoutedEventArgs e)
         {
             // ReportViewer.Reset();
-            
-            var datasource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetMovimentoProduto", servicesDBmp.Listar());
+
+            var datasource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTeste", servicesDBmp.Listar());
             ReportViewer.LocalReport.DataSources.Add(datasource);
             ReportViewer.LocalReport.ReportEmbeddedResource = "ColetorAppServidor.Relatorios.RelatorioMovimentoProduto.rdlc";
             ReportViewer.RefreshReport();

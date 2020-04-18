@@ -15,7 +15,7 @@ namespace ColetorAppServidor.Services
         SqlConnection sqlConnection = new SqlConnection();
         SqlCommand cmd = new SqlCommand();
         SqlDataReader sqlReader;
-        Movimento_Produto mp_Produto = new Movimento_Produto();
+
         List<Movimento_Produto> lista_mp_Produto = new List<Movimento_Produto>();
 
         public List<Movimento_Produto> Listar()
@@ -28,6 +28,7 @@ namespace ColetorAppServidor.Services
                 sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())
                 {
+                    Movimento_Produto mp_Produto = new Movimento_Produto();
                     mp_Produto.mp_id = sqlReader.GetInt32(0);
                     mp_Produto.mp_inventario = sqlReader.GetInt32(1);
                     mp_Produto.mp_produto = sqlReader.GetString(2);
