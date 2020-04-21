@@ -20,21 +20,37 @@ namespace ColetorAppServidor.Views
     /// </summary>
     public partial class RelatorioInventario : Window
     {
-        ServicesDBMovimentoProduto servicesDBmp = new ServicesDBMovimentoProduto();
+
         ServicesDBUsuario servicesDB = new ServicesDBUsuario();
+        ServicesDBInventario servicesDBInventario = new ServicesDBInventario();
         public RelatorioInventario()
         {
             InitializeComponent();
+            cb_inventario.ItemsSource = servicesDBInventario.ListarInventarios();
         }
 
         public void bt_CarregarRelatorio(object sender, RoutedEventArgs e)
         {
-            // ReportViewer.Reset();
+            ServicesDBMovimentoProduto servicesDBmp = new ServicesDBMovimentoProduto();
+            int? codigoSelecionado;
 
-            var datasource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTeste", servicesDBmp.Listar());
+            if (cb_inventario.SelectedIndex >= 0)
+            {
+                codigoSelecionado = Convert.ToInt32(cb_inventario.SelectedValue);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um inventário!");
+                return;
+            }
+            ReportViewer.Reset();
+            _ = DateTime.Now;
+            var datasource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetTeste", servicesDBmp.Listar(codigoSelecionado));
             ReportViewer.LocalReport.DataSources.Add(datasource);
             ReportViewer.LocalReport.ReportEmbeddedResource = "ColetorAppServidor.Relatorios.RelatorioMovimentoProduto.rdlc";
             ReportViewer.RefreshReport();
+
+            codigoSelecionado = null;
 
         }
 

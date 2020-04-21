@@ -15,6 +15,37 @@ namespace ColetorAppServidor.Services
         SqlCommand sqlCommand = new SqlCommand();
         SqlDataReader sqldataReader = null;
         public string Statusmessagem { get; set; }
+
+        public List<Inventario> ListarInventarios()
+        {
+            try
+            {
+                List<Inventario> lista_inv = new List<Inventario>();
+                sqlCommand.CommandText = "select * from inventario";
+                sqlCommand.Connection = conexao.conectar();
+                sqldataReader = sqlCommand.ExecuteReader();
+                while (sqldataReader.Read())
+                {
+                    Inventario inventario = new Inventario();
+                    inventario.inv_id = sqldataReader.GetInt32(0);
+                    inventario.inv_dtabertura = sqldataReader.GetDateTime(1);
+                    inventario.inv_dtfechamento = sqldataReader["inv_dtfechamento"].ToString().Length > 0 ? DateTime.Parse(sqldataReader["inv_dtfechamento"].ToString()) : DateTime.MinValue;
+                    lista_inv.Add(inventario);
+                }
+                return lista_inv;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                sqldataReader.Close();
+                sqlCommand.Parameters.Clear();
+                conexao.desconectar();
+            }
+
+        }
         public void Criar_Inventario()
         {
             //DateTime.Now.ToString("MM/dd/yyyy")

@@ -18,12 +18,12 @@ namespace ColetorAppServidor.Services
 
         List<Movimento_Produto> lista_mp_Produto = new List<Movimento_Produto>();
 
-        public List<Movimento_Produto> Listar()
+        public List<Movimento_Produto> Listar(int? inventario)
         {
             try
             {
-                cmd.CommandText = "select * from movimento_produto";
-                //cmd.Parameters.AddWithValue("@inv", inventario);
+                cmd.CommandText = "select * from movimento_produto where mp_inventario = @inv";
+                cmd.Parameters.AddWithValue("@inv", inventario);
                 cmd.Connection = con.conectar();
                 sqlReader = cmd.ExecuteReader();
                 while (sqlReader.Read())

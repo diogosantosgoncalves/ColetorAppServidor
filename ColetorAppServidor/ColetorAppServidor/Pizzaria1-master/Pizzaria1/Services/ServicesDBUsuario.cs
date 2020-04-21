@@ -57,7 +57,7 @@ namespace ColetorAppServidor.Services
                 sqlcommand.Connection = con.conectar();
                 sqlcommand.ExecuteNonQuery();
 
-                Statusmessagem ="Usuario alterado com sucesso!";
+                Statusmessagem ="Usuário alterado com sucesso!";
             }
             catch (SqlException ex)
             {

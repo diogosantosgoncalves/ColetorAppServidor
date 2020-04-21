@@ -8,10 +8,20 @@
         mc:Ignorable="d"
         Title="RelatorioInventario" Height="450" Width="800">
     <Grid>
-        <Button Name="bt_Carregar" Click="bt_CarregarRelatorio" Content="Carregar" HorizontalAlignment="Left" Margin="548,22,0,0" VerticalAlignment="Top" Width="97"/>
-        <ListBox HorizontalAlignment="Left" Height="100" Margin="148,22,0,0" VerticalAlignment="Top" Width="330" RenderTransformOrigin="0.42,0.25"/>
+        <Button Name="bt_Carregar" Click="bt_CarregarRelatorio" Content="Carregar" HorizontalAlignment="Left" Margin="170,22,0,0" VerticalAlignment="Top" Width="97"/>
+        <ListBox  Name="cb_inventario" SelectedValuePath="inv_id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,22,0,0" Width="62" Height="96">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel >
+                        <TextBlock FontWeight="Bold" Text="{Binding inv_id}" Width="50"/>
+                        <!--<TextBlock Text="{Binding inv_dtabertura}"/>
+                        <TextBlock Text="{Binding inv_dtfechamento}"/>-->
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Label Content="Inventário:" HorizontalAlignment="Left" Margin="10,22,0,0" VerticalAlignment="Top" Width="73"/>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="348" Margin="10,63,0,0" VerticalAlignment="Top" Width="774">
+        <WindowsFormsHost HorizontalAlignment="Left" Height="277" Margin="10,139,0,0" VerticalAlignment="Top" Width="774">
             <rv:ReportViewer x:Name="ReportViewer" />
         </WindowsFormsHost>
 

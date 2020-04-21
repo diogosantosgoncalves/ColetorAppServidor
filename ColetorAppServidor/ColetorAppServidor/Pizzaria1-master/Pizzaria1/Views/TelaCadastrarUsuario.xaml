@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="TelaCadastrarUsuario" Height="350" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Tela Cadastrar Usuário" Height="350" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel Background="AliceBlue">
-        <Label Content="Cadastro de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="100,0,90,20"/>
+        <Label Content="Cadastro de Usuário" FontSize="20" FontWeight="ExtraBlack"  Margin="88,0,90,20"/>
         <TextBox Name="txt_id" Visibility="Hidden" />
         <Label Content="Nome: " />
         <TextBox Name="txt_NomeUsuario" />
