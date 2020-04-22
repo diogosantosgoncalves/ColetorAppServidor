@@ -49,5 +49,32 @@ namespace ColetorAppServidor.Services
                 cmd.Parameters.Clear();
             }
         }
+        public int Contar_Total_Produtos(int inventario)
+        {
+            try
+            {
+                int cont = 0;
+                cmd.CommandText = "select count(*) from movimento_produto where mp_inventario = @inv";
+                cmd.Parameters.AddWithValue("@inv", inventario);
+                cmd.Connection = con.conectar();
+                sqlReader = cmd.ExecuteReader();
+                if (sqlReader.Read())
+                {
+                    cont = sqlReader.GetInt32(0);
+                }
+                return cont;
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                sqlReader.Close();
+                cmd.Parameters.Clear();
+                con.desconectar();
+            }
+
+        }
     }
 }

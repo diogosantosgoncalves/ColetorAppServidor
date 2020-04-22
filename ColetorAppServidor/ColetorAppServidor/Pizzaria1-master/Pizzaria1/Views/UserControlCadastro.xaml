@@ -22,8 +22,8 @@
         </Grid.ColumnDefinitions>
         <Label Content="Cadastro de Usuários" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Button Content="Cadastrar" Grid.Row="1" Grid.Column="0" Click="CadastrarUsuario"/>
-        <Button Content="Consultar Usuários Cadastrados" Grid.Row="1" Grid.Column="1" Click="ConsultarUsuario"/>
+        <Button Content="Cadastrar" Grid.Row="1" Grid.Column="0" Click="CadastrarUsuario" Margin="0 0 50 0"/>
+        <Button Content="Consultar Usuários Cadastrados" Grid.Row="1" Grid.Column="1" Click="ConsultarUsuario" Margin="50 0 150 0"/>
         <Button Content="Permissões" Grid.Row="1" Grid.Column="2"/>
 
         <Label FontWeight="Black" Name="lb_nomeUsuario" FontSize="20" Content="Nome do Usuário:" Grid.Row="2" />

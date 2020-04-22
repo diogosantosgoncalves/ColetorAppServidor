@@ -7,30 +7,30 @@
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Height="1000" Width="700">
-    <Grid Margin="10">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+    <Grid Margin="0 0 0 455" >
+        <Grid.RowDefinitions >
+            <RowDefinition Height="Auto" MinHeight="100"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+            <!--<ColumnDefinition Width="*"/>-->
         </Grid.ColumnDefinitions>
-        <Label Content="Informações da Contagem" Grid.ColumnSpan="3"
-            Grid.Row="0" Grid.Column="0" FontSize="40"/>
-        <Button Name="bt_InicioContagem" Click="bt_IniciarContagem"  Content="Iniciar Contagem" Grid.Row="1" Grid.Column="1"/>
-        <Label FontSize="15" Name="qtde_prod" Content="{Binding qtde_prod}"  Grid.Row="1"  Grid.Column="0" />
-        <Label FontSize="15" Name="qtde_usuario" Content="{Binding qtde_usuario}" Margin="0,0,100,0" Grid.Row="2" />
-        <Label FontSize="15" Content="Data de Abertura: " Grid.Row="2" Grid.Column="1" />
-        <Label FontSize="15" Name="dtabertura" Content="{Binding dtabertura}" Grid.Row="2" Grid.Column="2" />
-        <Label FontSize="15" Name="qtde_usuario_ativos" Content="{Binding qtde_usuario_ativos}" Grid.Row="3" Grid.ColumnSpan="3" />
-        <Label FontSize="15" Content="Data de Fechamento: " Grid.Row="3" Grid.Column="1" />
-        <Label FontSize="15" Name="lb_dtfechamento" Grid.Row="3" Grid.Column="3" />
-        <Label FontSize="15" Name="data_inventario_ultimo" Content="{Binding data_inventario_ultimo}" Grid.Row="4" Grid.ColumnSpan="3" />
+        <Label Content="Informações da Contagem" Grid.ColumnSpan="2"
+            Grid.Row="0" Grid.Column="0" FontSize="55" Margin="0 0 0 20" FontWeight="DemiBold"/>
+        <Button Name="bt_InicioContagem" Click="bt_IniciarContagem"  Content="Iniciar Contagem" Margin="0 0 40 0" Grid.Row="1" Grid.Column="1"/>
+        <Label FontSize="15" Name="qtde_prod" Content="{Binding qtde_prod}" Grid.Row="1" />
+        <Label FontSize="15" Name="qtde_usuario" Content="{Binding qtde_usuario}" Grid.Row="2" />
+        <Label FontSize="15" Name="dtabertura" Content="{Binding dtabertura}" Grid.Row="2" Grid.Column="1" />
+        <Label FontSize="15" Name="qtde_usuario_ativos" Content="{Binding qtde_usuario_ativos}" Grid.Row="3" />
+        <Label FontSize="15" Name="lb_dtfechamento" Grid.Row="3" Grid.Column="1" />
+        <Label FontSize="15" Name="data_inventario_ultimo" Content="{Binding data_inventario_ultimo}"  Grid.Row="4" />
+        <Label FontSize="15" Name="lb_total_produtos_contados" Content="{Binding total_produtos_contados}" Grid.Column="1" Grid.Row="4" />
     </Grid>
 
 </UserControl>

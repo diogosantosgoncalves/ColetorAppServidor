@@ -34,7 +34,7 @@ namespace ColetorAppServidor.Services
                 }
                 return lista_inv;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
@@ -53,7 +53,7 @@ namespace ColetorAppServidor.Services
             try
             {
                 sqlCommand.CommandText = "insert into Inventario (inv_dtabertura) values(@dt_abertura)";
-                sqlCommand.Parameters.AddWithValue("@dt_abertura", DateTime.Now.ToString("dd/MM/yyyy"));
+                sqlCommand.Parameters.AddWithValue("@dt_abertura", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
                 sqlCommand.Connection = conexao.conectar();
                 sqlCommand.ExecuteNonQuery();
             }
@@ -77,11 +77,11 @@ namespace ColetorAppServidor.Services
                 sqldataReader = sqlCommand.ExecuteReader();
                 if (sqldataReader.Read())
                 {
-                    inventario.inv_id =  sqldataReader.GetInt32(0);
+                    inventario.inv_id = sqldataReader.GetInt32(0);
                     inventario.inv_dtabertura = sqldataReader.GetDateTime(1);
                     inventario.inv_dtfechamento = sqldataReader["inv_dtfechamento"].ToString().Length > 0 ? DateTime.Parse(sqldataReader["inv_dtfechamento"].ToString()) : DateTime.MinValue;
 
-            }
+                }
                 return inventario;
 
             }
@@ -103,7 +103,7 @@ namespace ColetorAppServidor.Services
             try
             {
                 sqlCommand.CommandText = "update inventario set inv_dtfechamento = @dtfechamento";
-                sqlCommand.Parameters.AddWithValue("@dtfechamento", DateTime.Now.ToString("dd/MM/yyyy"));
+                sqlCommand.Parameters.AddWithValue("@dtfechamento", DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
                 sqlCommand.Connection = conexao.conectar();
                 sqlCommand.ExecuteNonQuery();
 
@@ -111,6 +111,34 @@ namespace ColetorAppServidor.Services
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
+            }
+            finally
+            {
+                sqldataReader.Close();
+                sqlCommand.Parameters.Clear();
+                conexao.desconectar();
+            }
+        }
+        public Inventario Buscar_Ultimo_Inventario()
+        {
+            try
+            {
+                Inventario inventario = new Inventario();
+                sqlCommand.CommandText = "select top 1 * from Inventario where inv_dtfechamento is not null order by inv_id desc";
+                sqlCommand.Connection = conexao.conectar();
+                sqldataReader = sqlCommand.ExecuteReader();
+
+                if (sqldataReader.Read())
+                {
+
+                    inventario.inv_id = sqldataReader.GetInt32(0);
+                    inventario.inv_dtabertura = sqldataReader.GetDateTime(1);
+                    inventario.inv_dtfechamento = sqldataReader["inv_dtfechamento"].ToString().Length > 0 ? DateTime.Parse(sqldataReader["inv_dtfechamento"].ToString()) : DateTime.MinValue;
+                }
+            return inventario;
+            }catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
             finally
             {

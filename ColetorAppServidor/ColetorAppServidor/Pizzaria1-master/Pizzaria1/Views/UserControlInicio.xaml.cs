@@ -26,6 +26,7 @@ namespace Pizzaria1
         ServicesDBInventario servicesDBInventario = new ServicesDBInventario();
         ServicesDBProduto servicesDBProduto = new ServicesDBProduto();
         ServicesDBUsuario servicesDBUsuario = new ServicesDBUsuario();
+        ServicesDBMovimentoProduto movimentoProduto = new ServicesDBMovimentoProduto();
         Inventario inventario = new Inventario();
         public UserControlInicio()
         {
@@ -35,14 +36,15 @@ namespace Pizzaria1
 
             qtde_usuario.Content = "Quantidade de Usuários: " + servicesDBUsuario.BuscarUsuario("").Count.ToString();
 
-            qtde_usuario_ativos.Content = "Quantidade de Usuários Ativos: " + servicesDBUsuario.Usuarios_Ativos();
+            qtde_usuario_ativos.Content = "Quantidade de Usuários Ativos: " + servicesDBUsuario.Usuarios_Ativos().ToString();
 
-            data_inventario_ultimo.Content = "Data do último Inventário:";
-
+            data_inventario_ultimo.Content = "Data do último Inventário: " + String.Format("{0:d/M/yyyy HH:mm:ss}", servicesDBInventario.Buscar_Ultimo_Inventario().inv_dtfechamento); 
+            
             inventario = servicesDBInventario.Buscar_Contagem_Atual();
             if(inventario.inv_dtabertura != null)
             {
                 bt_InicioContagem.Content = "Fechar Contagem";
+                lb_total_produtos_contados.Content = "Total de Produtos Contados: " + movimentoProduto.Contar_Total_Produtos(inventario.inv_id);
             }
             else
             {
@@ -50,11 +52,9 @@ namespace Pizzaria1
             }
             if(inventario.inv_dtfechamento != DateTime.MinValue)
             {
-                lb_dtfechamento.Content = inventario.inv_dtfechamento;
+                lb_dtfechamento.Content = "Data Fechamento: " +  String.Format("{0:d/M/yyyy HH:mm:ss}", inventario.inv_dtfechamento);
             }
-            dtabertura.Content = inventario.inv_dtabertura;
-
-
+            dtabertura.Content = "Data Abertura: " + String.Format("{0:d/M/yyyy HH:mm:ss}", inventario.inv_dtabertura);
         }
 
         public void bt_IniciarContagem(object sender, RoutedEventArgs e)
@@ -62,21 +62,24 @@ namespace Pizzaria1
             DateTime hoje = DateTime.Today;
             if (bt_InicioContagem.Content.ToString() == "Iniciar Contagem")
             {
+                
                 servicesDBInventario.Criar_Inventario();
+                Inventario inventario = servicesDBInventario.Buscar_Contagem_Atual();
                 MessageBox.Show("Iniciando Contagem...");
                 bt_InicioContagem.Content = "Fechar Contagem";
-                dtabertura.Content = DateTime.Now.ToString("dd/MM/yyyy");
+                dtabertura.Content = "Data Abertura: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                lb_dtfechamento.Content = "Data Fechamento: ";
+                lb_total_produtos_contados.Content = "Total de Produtos Contados: " + movimentoProduto.Contar_Total_Produtos(inventario.inv_id);
             }
             else
             {
                 servicesDBInventario.Fechar_Contagem_Atual();
                 MessageBox.Show("Contagem Fechada!");
-                lb_dtfechamento.Content = DateTime.Now.ToString("dd/MM/yyyy");
+                lb_dtfechamento.Content = "Data Fechamento: " + String.Format("{0:d/M/yyyy HH:mm:ss}", servicesDBInventario.Buscar_Ultimo_Inventario().inv_dtfechamento);
                 bt_InicioContagem.Content = "Iniciar Contagem";
-                data_inventario_ultimo.Content += DateTime.Now.ToString("dd/MM/yyyy");
-                qtde_usuario_ativos.Content = "0";
+                data_inventario_ultimo.Content = "Data do último Inventário: " + String.Format("{0:d/M/yyyy HH:mm:ss}", servicesDBInventario.Buscar_Ultimo_Inventario().inv_dtfechamento);
+                lb_total_produtos_contados.Content = "Total de Produtos Contados: 0";
             }
-
         }
     }
 }

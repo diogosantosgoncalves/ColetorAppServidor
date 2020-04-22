@@ -20,7 +20,7 @@
         <ColumnDefinition Width="100"/>
     </Grid.ColumnDefinitions>
         <Label Content="Importação do Arquivo .txt" Grid.ColumnSpan="3"
-            Grid.Row="0" Grid.Column="0" FontSize="40"/>
+            Grid.Row="0" Grid.Column="0" FontSize="40" Margin="0 0 0 20"/>
         <Button Content="Procurar" Width="150" Grid.Row="1" Click="importar_Arquivo_Txt"/>
     </Grid>
 </UserControl>
