@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Pizzaria1.UserControlImportarTxt"
+﻿<UserControl x:Class="ColetorServidor.UserControlImportarTxt"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Pizzaria1"
+        xmlns:local="clr-namespace:ColetorServidor"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Height="1000" Width="750">
@@ -19,8 +19,11 @@
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="100"/>
     </Grid.ColumnDefinitions>
-        <Label Content="Importação do Arquivo .txt" Grid.ColumnSpan="3"
+        <Label Content="Importação do Arquivo (.TXT)" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" Margin="0 0 0 20"/>
         <Button Content="Procurar" Width="150" Grid.Row="1" Click="importar_Arquivo_Txt"/>
+        <TextBlock FontSize="15" Margin="30" Text="Esse será um exemplo de como ficará o arquivo .CSV/TXT para importar no Servidor." Grid.Column="0" Grid.Row="2" />
+        <Image Source="Imagem_Importar.png" Grid.Row="3" Grid.Column="0" Width="800" Height="250"/>
+        
     </Grid>
 </UserControl>

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Height="1000" Width="750">
 
-    <Grid Background="AliceBlue" Margin="0 0 0 0" MaxHeight="500" VerticalAlignment="Top" >
+    <Grid Background="#FFEEEEEE" Margin="0 0 0 0" MaxHeight="500" VerticalAlignment="Top" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

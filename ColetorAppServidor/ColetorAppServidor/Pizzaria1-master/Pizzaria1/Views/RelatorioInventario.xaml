@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="RelatorioInventario" Height="450" Width="700">
+        Title="Relatório de Inventário" Height="550" Width="700" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button Name="bt_Carregar" Click="bt_CarregarRelatorio" Content="Carregar" HorizontalAlignment="Left" Margin="170,22,0,0" VerticalAlignment="Top" Width="97"/>
         <ListBox  Name="cb_inventario" SelectedValuePath="inv_id" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="88,22,0,0" Width="62" Height="96">

@@ -14,14 +14,18 @@
             <RowDefinition Height="30"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Exportação do Arquivo .txt" Grid.ColumnSpan="3"
+        <Label Content="Exportação do Arquivo (.TXT)" Grid.ColumnSpan="3"
             Grid.Row="0" Grid.Column="0" FontSize="40" Margin="0 0 0 20"/>
-        <Button Content="Salvar Como" Grid.Row="1" Width="150" Click="exportar_Arquivo_Txt"/>
-  </Grid>
+        <Button Content="Salvar Como" Width="150" Grid.Row="1" Click="exportar_Arquivo_Txt"/>
+        <TextBlock FontSize="15" Margin="30" Text="Esse será um exemplo de como ficará o arquivo .CSV/TXT para importar no Servidor." Grid.Column="0" Grid.Row="2" />
+        <Image Margin="0 0 0 0" Source="Imagem_Exportar.png" Grid.Row="3" Grid.ColumnSpan="3" Grid.Column="0" Width="800" Height="220"/>
+        <TextBlock Foreground="Red" FontSize="15" Margin="0 0 0 0" Text="Obs: Nessa tela exportará os produtos contados do último inventário." Grid.Column="0" Grid.Row="4" />
+    </Grid>
 </UserControl>

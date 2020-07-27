@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pizzaria1
+namespace ColetorServidor
 {
     public partial class UserControlImportarTxt : UserControl
     {
@@ -56,6 +56,7 @@ namespace Pizzaria1
                         Produto: {0}
                         Setor: {1}", 
                         linhaseparada[0], linhaseparada[1]);
+                        if (linhaseparada[0] == "") continue;
                         cont = cont + 1;
                         //Conta os setores e Salvo no banco caso não esteja Cadastrado
                         var temnalista = list_Setores.IndexOf(linhaseparada[1]);

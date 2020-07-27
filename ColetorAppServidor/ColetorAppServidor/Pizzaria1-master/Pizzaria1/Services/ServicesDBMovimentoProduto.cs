@@ -35,7 +35,6 @@ namespace ColetorAppServidor.Services
                     mp_Produto.mp_produto_quant = sqlReader.GetInt32(3);
                     lista_mp_Produto.Add(mp_Produto);
                 }
-                //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd.ExecuteReader());
                 return lista_mp_Produto;
             }
             catch(Exception e)

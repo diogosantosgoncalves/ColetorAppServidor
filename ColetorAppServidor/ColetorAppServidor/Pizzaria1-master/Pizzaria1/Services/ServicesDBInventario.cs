@@ -48,8 +48,6 @@ namespace ColetorAppServidor.Services
         }
         public void Criar_Inventario()
         {
-            //DateTime.Now.ToString("MM/dd/yyyy")
-            //DateTime hoje = DateTime.Today;
             try
             {
                 sqlCommand.CommandText = "insert into Inventario (inv_dtabertura) values(@dt_abertura)";
@@ -99,7 +97,6 @@ namespace ColetorAppServidor.Services
         public void Fechar_Contagem_Atual()
         {
             Inventario inventario = new Inventario();
-            //DateTime hoje = DateTime.Today;
             try
             {
                 sqlCommand.CommandText = "update inventario set inv_dtfechamento = @dtfechamento";

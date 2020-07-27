@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interação lógica para UserControlConfiguracoes.xam
-    /// </summary>
     public partial class UserControlConfiguracoes : UserControl
     {
         public UserControlConfiguracoes()
@@ -36,7 +33,6 @@ namespace ColetorAppServidor.Views
             RelatorioUsuario tela = new RelatorioUsuario();
             tela.Show();
         }
-
         private void bt_RelatorioInventario(object sender, RoutedEventArgs e)
         {
             RelatorioInventario tela = new RelatorioInventario();

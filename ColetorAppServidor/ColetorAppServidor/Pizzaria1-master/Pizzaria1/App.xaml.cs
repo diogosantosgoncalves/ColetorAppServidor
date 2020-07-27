@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Pizzaria1
+namespace ColetorServidor
 {
     /// <summary>
     /// Interação lógica para App.xaml

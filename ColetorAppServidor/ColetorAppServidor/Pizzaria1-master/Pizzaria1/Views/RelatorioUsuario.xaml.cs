@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interaction logic for RelatorioUsuario.xaml
-    /// </summary>
     public partial class RelatorioUsuario : Window
     {
         ServicesDBUsuario servicesDBUsuario = new ServicesDBUsuario();
@@ -30,9 +27,7 @@ namespace ColetorAppServidor.Views
         {
             var datasources = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetUsuario", servicesDBUsuario.BuscarUsuario(""));
             ReportViewer.LocalReport.DataSources.Add(datasources);
-
             ReportViewer.LocalReport.ReportEmbeddedResource = "ColetorAppServidor.Relatorios.RelatorioUsuario.rdlc";
-
             ReportViewer.RefreshReport();
         }
     }

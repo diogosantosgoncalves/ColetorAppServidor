@@ -103,7 +103,6 @@ namespace ColetorAppServidor.Services
                 sqldataReader.Close();
             }
         }
-
         public void AtivarProduto(string nome)
         {
             try

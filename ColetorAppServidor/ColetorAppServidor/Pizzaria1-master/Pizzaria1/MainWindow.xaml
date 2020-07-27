@@ -1,9 +1,9 @@
-﻿<Window x:Class="Pizzaria1.MainWindow"
+﻿<Window x:Class="ColetorServidor.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Pizzaria1"
+        xmlns:local="clr-namespace:ColetorServidor"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="600" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" >
     <Grid Background="#FFEEEEEE" MouseDown="Grid_MouseDown">
@@ -11,7 +11,7 @@
             <Grid Background="#FF0069C0" Height="10"/>
             <Grid Margin="5">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                    <TextBlock Text="Coletor APP - versão: 1.7.12" VerticalAlignment="Center" FontSize="20" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
+                    <TextBlock Text="Coletor APP - versão: 1.26.7" VerticalAlignment="Center" FontSize="20" FontFamily="Champagne &amp; Limousines" Margin="20 0"/>
                     <Button Width="30" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Padding="0" Foreground="Gray">
                         <materialDesign:PackIcon Kind="FacebookBox"/>
                     </Button>

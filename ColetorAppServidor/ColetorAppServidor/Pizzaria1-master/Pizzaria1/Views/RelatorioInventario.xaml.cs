@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interaction logic for RelatorioInventario.xaml
-    /// </summary>
     public partial class RelatorioInventario : Window
     {
 
@@ -51,8 +48,6 @@ namespace ColetorAppServidor.Views
             ReportViewer.RefreshReport();
 
             codigoSelecionado = null;
-
         }
-
     }
 }

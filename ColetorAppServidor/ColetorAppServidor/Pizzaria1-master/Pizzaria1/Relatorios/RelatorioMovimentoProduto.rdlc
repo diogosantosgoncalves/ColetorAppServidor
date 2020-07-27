@@ -9,13 +9,13 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.92056cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>4.24625cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>3.84937cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -305,7 +305,7 @@
         <Top>0.27023cm</Top>
         <Left>0.00564cm</Left>
         <Height>1.2cm</Height>
-        <Width>10cm</Width>
+        <Width>14.51618cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -313,7 +313,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.66667in</Height>
     <Style />
   </Body>
   <Width>6.66331in</Width>
@@ -330,7 +330,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Relacionamento de Produtos</Value>
+                  <Value>Relatório de Produtos</Value>
                   <Style>
                     <FontSize>26pt</FontSize>
                   </Style>

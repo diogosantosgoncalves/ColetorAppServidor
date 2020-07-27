@@ -70,7 +70,6 @@ namespace ColetorAppServidor.Services
             }
 
         }
-
         public List<Usuario> BuscarUsuario(String nomeUsuario)
         {
             try {
@@ -164,9 +163,6 @@ namespace ColetorAppServidor.Services
                 sqldataReader.Close();
                 con.desconectar();
             }
-
-
-
         }
     }
 }

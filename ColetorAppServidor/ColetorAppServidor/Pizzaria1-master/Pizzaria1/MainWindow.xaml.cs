@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pizzaria1
+namespace ColetorServidor
 {
     /// <summary>
     /// Interação lógica para MainWindow.xam

@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interaction logic for RelatorioProduto.xaml
-    /// </summary>
     public partial class RelatorioProduto : Window
     {
         Conexao con = new Conexao();
@@ -31,9 +28,9 @@ namespace ColetorAppServidor.Views
         {
            var dataSource = new Microsoft.Reporting.WinForms.ReportDataSource("DataSetProduto", servicesDBProduto.Listar_Produto());
            ReportViewer.LocalReport.DataSources.Add(dataSource);
-            ReportViewer.LocalReport.ReportEmbeddedResource = "ColetorAppServidor.Relatorios.RelatorioProduto.rdlc";
+           ReportViewer.LocalReport.ReportEmbeddedResource = "ColetorAppServidor.Relatorios.RelatorioProduto.rdlc";
 
-            ReportViewer.RefreshReport();
+           ReportViewer.RefreshReport();
         }
     }
 }

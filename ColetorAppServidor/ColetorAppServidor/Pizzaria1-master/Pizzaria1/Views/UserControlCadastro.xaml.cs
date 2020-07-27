@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Pizzaria1
+namespace ColetorServidor
 {
     public partial class UserControlCadastro : UserControl
     {

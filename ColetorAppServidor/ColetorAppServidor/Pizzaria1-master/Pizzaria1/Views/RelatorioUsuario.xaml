@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ColetorAppServidor.Views"
         mc:Ignorable="d"
-        Title="RelatorioUsuario" Height="450" Width="800">
+        Title="Relatório de Usuário" Height="450" Width="800">
     <Grid>
         <WindowsFormsHost HorizontalAlignment="Stretch"  VerticalAlignment="Stretch">
             <rv:ReportViewer x:Name="ReportViewer" Load="ReportViewer_Load"/>

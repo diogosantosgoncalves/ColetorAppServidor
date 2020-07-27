@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interação lógica para PagePermissaoUsuario.xam
-    /// </summary>
     public partial class TelaPermissaoUsuario : Window
     {
         public string nome_usuario;

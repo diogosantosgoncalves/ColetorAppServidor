@@ -20,36 +20,36 @@ using System.Windows.Shapes;
 
 namespace ColetorAppServidor.Views
 {
-    /// <summary>
-    /// Interação lógica para UserControlExportarTxt.xam
-    /// </summary>
     public partial class UserControlExportarTxt : UserControl
     {
         SqlCommand cmd = new SqlCommand();
         Conexao conexao = new Conexao();
-        List<Produto> list_produtos = new List<Produto>();
-        ServicesDBProduto dBProduto = new ServicesDBProduto();
+        ServicesDBInventario servicesDBInventario = new ServicesDBInventario();
+        ServicesDBMovimentoProduto servicesDBMovimentoProduto = new ServicesDBMovimentoProduto();
+
         public UserControlExportarTxt()
         {
             InitializeComponent();
         }
         public void exportar_Arquivo_Txt(object sender, RoutedEventArgs e)
         {
+            Inventario inventario = servicesDBInventario.Buscar_Ultimo_Inventario();
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "file CSV (*.csv)|*.csv|Text file (*.txt)|*.txt";
             if (saveFileDialog.ShowDialog() == true)
             {
-                list_produtos = dBProduto.Listar_Produto();
+                List<Movimento_Produto> lista_movimento_Produtos = servicesDBMovimentoProduto.Listar(inventario.inv_id);
 
                 using (StreamWriter sw = File.CreateText(saveFileDialog.FileName))
                 {
-                    foreach (var Produto in list_produtos)
+                    foreach (var Produto in lista_movimento_Produtos)
                     {
-                        sw.WriteLine(Produto.prod_Nome + ";" + Produto.prod_Quant + ";" + Produto.prod_Setor);
+                        sw.WriteLine(Produto.mp_produto + ";" + Produto.mp_produto_quant + ";");
                     }
                 }
-                MessageBox.Show("Quantidade de Produtos Exportados: " + list_produtos.Count.ToString()); ;
-                MessageBox.Show("Arquivo Exportado com Sucesso!");
+                MessageBox.Show("Quantidade de Produtos Exportados: " + lista_movimento_Produtos.Count.ToString());
+                MessageBox.Show("Inventário: " + inventario.inv_id +  ". Arquivo Exportado com Sucesso!");
+                lista_movimento_Produtos.Clear();
             }
         }
     }
