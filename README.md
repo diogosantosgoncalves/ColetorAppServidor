@@ -26,6 +26,7 @@ A aplicação permite o cadastro de:
 A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo algumas das funcionalidades:
 
 - Método para geração e validação de token utilizando JWT;
+- Utilizado a ferramenta Entity Framework com migrations para o mapeamento dos objetos relacionais e criação do banco de dados.
 - Limitação de requisições na api, para evitar sobrecarga no sistema;
 - Possibilidade de transações durante os cadastro dos dados das tabelas;
 - Implementação de paginação e ordenação nas consultas;
@@ -36,6 +37,8 @@ A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo al
 - Aplicação criado com base no clean architecture.
 - Aplicado boas práticas de Clean Code.
 - Adotado a criação de uma pipeline CI/CD utilizando github action, onde é acionada nos commits.
+- Criado um middleware globais para exceções e tratamento no Asp.NET Core.
+- Utilizado o padrão Result Pattner para lidar com as operações de requisições que foram com sucesso.
 
 ## 📌 Instruções e Sugestões
 
