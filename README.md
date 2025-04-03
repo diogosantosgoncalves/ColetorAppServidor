@@ -23,7 +23,7 @@ A aplicação permite o cadastro de:
 
 ## ⚙️ Funcionalidades
 
-A API fornecer serviços para validação dos dados. Segue abaixo algumas das funcionalidades:
+A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo algumas das funcionalidades:
 
 - Método para geração e validação de token utilizando JWT;
 - Limitação de requisições na api, para evitar sobrecarga no sistema;
@@ -31,6 +31,11 @@ A API fornecer serviços para validação dos dados. Segue abaixo algumas das fu
 - Implementação de paginação e ordenação nas consultas;
 - Retorno padronizado de erros e mensagens para o cliente.
 - Possibilidade de utilizar o docker compose para rodar a aplicação em um ambiente containerizado.
+- Utilizados classes input e view models para não exibição de dados sensíveis, e ótimização ao enviar os dados customizados.
+- Validação do tipo da Chave pix(Cpf, Cnpj etc...).
+- Aplicação criado com base no clean architecture.
+- Aplicado boas práticas de Clean Code.
+- Adotado a criação de uma pipeline CI/CD utilizando github action, onde é acionada nos commits.
 
 ## 📌 Instruções e Sugestões
 
