@@ -82,19 +82,12 @@ A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo al
 <li>Pressione F5 ou clique em "Iniciar" no Visual Studio para executar o projeto.</li>
 </ul>
 
-infraestrutura de dados (por exemplo, Infra.Data) esteja definido como o projeto padrão no Console do Gerenciador de Pacotes.
-Execute o comando Update-Database para aplicar as migrações e criar as tabelas no banco de dados.
-Update-Database
-5. Configurar a String de Conexão:
-Abra o arquivo appsettings.json e substitua a string de conexão do banco de dados pelas credenciais do seu PostgreSQL, se necessário.
-6. Executar o Projeto:
-Pressione F5 ou clique em "Iniciar" no Visual Studio para executar o projeto.
-Endpoints da API
+#### 6. Endpoints da API
 
-- Abra o Visual Studio ou VS Code, e clone o projeto: https://github.com/ricardo-axis/desafio-backend-diogo.git.
-- Abra o arquivo appsettings.json e configure a propriedade **ConnectionString** do banco de dados.
-- Execute o projeto, ou no terminal, rode o projeto utilizando o comando dotnet run.
-- Abra o navegador e acesse https://localhost:44339/swagger/index.html.
+<ul dir="auto">
+<li>Após rodar o projeto, basta acrescentar a url criada: `/swagger//index.html`</li>
+<li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
+</ul>
 
 ## ✔️ Documentação, Organização e Entrega
 
