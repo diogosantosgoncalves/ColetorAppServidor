@@ -44,10 +44,10 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 
 ### Rodando o projeto localmente:
 
-- A aplicação foi desenvolvida em **C# e .NET 9**; Baixe o SDK e Runtime no site <a href="[https://dotnet.microsoft.com/pt-br/download/dotnet/9.0]" rel="nofollow">Download .Net 9</a>
+- A aplicação foi desenvolvida em **C# e .NET 9**; Baixe o SDK e Runtime no site <a href="https://dotnet.microsoft.com/pt-br/download/dotnet/9.0" rel="nofollow">Download .Net 9</a>
    .
-- Baixe o Visual Studio 2022 no site https://visualstudio.microsoft.com/.
-- O Banco de dados utilizado foi o SQL Server 2022, Baixe no site https://www.microsoft.com/pt-br/sql-server/sql-server-downloads;
+- Baixe o Visual Studio 2022 no site <a href="https://visualstudio.microsoft.com/" rel="nofollow">Download Visual Studio 2022</a>.
+- O Banco de dados utilizado foi o SQL Server 2022, Baixe no site <a href="https://www.microsoft.com/pt-br/sql-server/sql-server-downloads" rel="nofollow">Download SQL Server</a>.;
 
 #### 1. Clonar o Repositório.
 
