@@ -2,7 +2,7 @@
 
 ## 📚 Introdução
 
-Entrega do desafio `Axis Challenge Backend Developer` onde pude demonstrar minhas habilidades como `Backend Developer` com conhecimentos intermediários em `DevOps`.
+Entrega do desafio `Axis Challenge Backend Developer` onde pude demonstrar um pouco das minhas habilidades como `Backend Developer` com conhecimentos intermediários em `DevOps`.
 
 ## 🚀 Tecnologias utilizadas
 
