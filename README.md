@@ -57,11 +57,29 @@ A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo al
 <pre class="notranslate"><code>https://github.com/ricardo-axis/desafio-backend-diogo.git
 </code></pre>
 
-#### 2. Configurar o Banco de dados
+#### 2. Abrir o Projeto no Visual Studio 2022:
+
+<ul dir="auto">
+<li>Navegue até o diretório onde o projeto foi clonado e abra o arquivo de solução DesafioAxis.sln</li>
+</ul>
+
+#### 3. Configurar o Banco de dados
 
 <ul dir="auto">
 <li>Certifique-se de ter o SQL Server instalado em sua máquina.</li>
 <li>Abra o arquivo arquivo appsettings.json, e digite a string de conexão do banco de dados.</li>
+</ul>
+
+#### 4. Migrações do Entity Framework Core:
+
+<ul dir="auto">
+<li>Não é necessário rodar nenhum comando adicional como `update-database` para a criação do banco de dados com sua tabela. A Aplicação já foi preparada para isso, quando rodar o projeto pela primeira vez, automaticamente criação o banco.</li>
+</ul>
+
+#### 5. Executar o projeto:
+
+<ul dir="auto">
+<li>Pressione F5 ou clique em "Iniciar" no Visual Studio para executar o projeto.</li>
 </ul>
 
 infraestrutura de dados (por exemplo, Infra.Data) esteja definido como o projeto padrão no Console do Gerenciador de Pacotes.
