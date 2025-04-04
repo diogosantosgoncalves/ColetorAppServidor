@@ -119,20 +119,6 @@ Para rodar a aplicação e baixar e executar todas as dependências do projeto, 
 - Execute o seguinte comando: <code>docker container run --publish 44339:8081 --detach --name api dockerapi:1.0</code>
 - Ele levará um tempo para baixar as imagens com todas as dependências do projeto.
 
-#### 5. Executar o projeto:
-
-<ul dir="auto">
-<li>Neste caso, vamos rodar nosso contêiner na porta 8080, ou seja, acessaremos nossa API no Browser pela URL</li>
-</ul>
-
-#### 6. Endpoints da API
-
-<ul dir="auto">
-<li>Após rodar o projeto, basta acrescentar a url criada: <code>/swagger//index.html</code></li>
-<li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
-</ul>
-
-
 ## ❓ Dúvidas?
 
 Se tiver qualquer dúvida, entre em contato com e-mail diogo_santos_goncalves@hotmail ou telefone (24) 99825-1424.
