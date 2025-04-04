@@ -89,20 +89,6 @@ A API foi criada utilizado alguns critérios no desenvolvimento. Segue abaixo al
 <li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
 </ul>
 
-## ✔️ Documentação, Organização e Entrega
-
-- O projeto deve ser entregue via **repositório Git** (GitHub, GitLab ou Bitbucket);
-- Criar um arquivo `README.md` contendo:
-  - Tecnologias utilizadas;
-  - Instruções para rodar o projeto localmente;
-  - Instruções para rodar o projeto com Docker (se aplicável);
-  - Como executar os testes (se houver);
-  - Configuração de ambiente para desenvolvimento e produção;
-- Adicionar um `.gitignore` adequado para o projeto;
-- O **prazo limite para entrega é 04/04/2025 às 23h59**.
-
 ## ❓ Dúvidas?
 
-Se tiver qualquer dúvida, entre em contato abrindo uma [Issue](https://github.com/ricardo-axis/desafio-backend-diogo/issues) no repositório do desafio.
-
-Boa sorte! 🚀
+Se tiver qualquer dúvida, entre em contato com e-mail diogo_santos_goncalves@hotmail ou telefone (24) 99825-1424.
