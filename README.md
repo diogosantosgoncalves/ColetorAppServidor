@@ -44,7 +44,8 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 
 ### Rodando o projeto localmente:
 
-- A aplicação foi desenvolvida em **C# e .NET 9**; Baixe o SDK e Runtime no site https://dotnet.microsoft.com/pt-br/download/dotnet/9.0.
+- A aplicação foi desenvolvida em **C# e .NET 9**; Baixe o SDK e Runtime no site <a href="[https://dotnet.microsoft.com/pt-br/download/dotnet/9.0]" rel="nofollow">Download .Net 9</a>
+   .
 - Baixe o Visual Studio 2022 no site https://visualstudio.microsoft.com/.
 - O Banco de dados utilizado foi o SQL Server 2022, Baixe no site https://www.microsoft.com/pt-br/sql-server/sql-server-downloads;
 
@@ -69,7 +70,7 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 #### 4. Migrações do Entity Framework Core:
 
 <ul dir="auto">
-<li>Não é necessário rodar nenhum comando adicional como `update-database` para a criação do banco de dados com sua tabela. A Aplicação já foi preparada para isso, quando rodar o projeto pela primeira vez, automaticamente criação o banco.</li>
+<li>Não é necessário rodar nenhum comando adicional como <code>update-database</code> para a criação do banco de dados com sua tabela. A Aplicação já foi preparada para isso, quando rodar o projeto pela primeira vez, automaticamente criação o banco.</li>
 </ul>
 
 #### 5. Executar o projeto:
@@ -81,7 +82,7 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 #### 6. Endpoints da API
 
 <ul dir="auto">
-<li>Após rodar o projeto, basta acrescentar a url criada: `/swagger//index.html`</li>
+<li>Após rodar o projeto, basta acrescentar a url criada: <code>/swagger//index.html</code></li>
 <li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
 </ul>
 
