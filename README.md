@@ -86,6 +86,53 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 <li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
 </ul>
 
+### Rodando o projeto com Docker:
+
+#### 1. Clonar o Repositório.
+
+<pre class="notranslate"><code>https://github.com/ricardo-axis/desafio-backend-diogo.git
+</code></pre>
+
+#### 2. Abrir o Projeto no Visual Studio 2022:
+
+<ul dir="auto">
+<li>Navegue até o diretório onde o projeto foi clonado e abra o arquivo de solução DesafioAxis.sln</li>
+</ul>
+
+#### 3. Instalação do Docker
+
+O Docker possui uma versão para Desktop caso você prefira, ao invés de linha de comando.
+- Vamos então acessar a página de início do Docker e clicar em <a href="https://www.docker.com/get-started" rel="nofollow">Download Docker</a> Isto vai nos levar a página de Downloads.
+- Selecione a versão que atende seu sistema operacional, como Docker seja Windows ou Mac e na tela seguinte, selecione Get Docker.
+- Siga a instalação dos pacotes para realizar todo o processo. Recomendamos que ao término do mesmo reinicie seu computador.
+Não se preocupe pois ele também fará a instalação do CLI.
+
+<ul dir="auto">
+<li>Após reiniciar o computador, inicie o Docker caso o mesmo não tenha sido iniciado.</li>
+<li> abra um terminal e digite o seguinte comando para ver a versão do Docker instalada: <code>docker --version</code></li>
+</ul>
+
+#### 4. Executando o docker compose
+
+Para rodar a aplicação e baixar e executar todas as dependências do projeto, utilizaremos o **Docker compose**.
+- Abra o terminal do docker, e acesse a pasta do projeto.
+- Execute o seguinte comando: <code>docker container run --publish 44339:8081 --detach --name api dockerapi:1.0</code>
+- Ele levará um tempo para baixar as imagens com todas as dependências do projeto.
+
+#### 5. Executar o projeto:
+
+<ul dir="auto">
+<li>Neste caso, vamos rodar nosso contêiner na porta 8080, ou seja, acessaremos nossa API no Browser pela URL</li>
+</ul>
+
+#### 6. Endpoints da API
+
+<ul dir="auto">
+<li>Após rodar o projeto, basta acrescentar a url criada: <code>/swagger//index.html</code></li>
+<li>Após isso, irá aparecer a página do Swagger, com isso, basta acessar os endpoints e fazer os cadastros e consultas das tabelas.</li>
+</ul>
+
+
 ## ❓ Dúvidas?
 
 Se tiver qualquer dúvida, entre em contato com e-mail diogo_santos_goncalves@hotmail ou telefone (24) 99825-1424.
