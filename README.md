@@ -64,8 +64,13 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 
 <ul dir="auto">
 <li>Certifique-se de ter o SQL Server instalado em sua máquina.</li>
-<li>Abra o arquivo appsettings.json, e digite a string de conexão para acesso ao banco de dados.</li>
+<li>Abra o arquivo appsettings.json, e digite a string de conexão para acesso ao banco de dados. Como no exemplo abaixo:</li>
 </ul>
+
+<pre class="notranslate"><code>  "ConnectionStrings": {
+    "DataBase": "Data Source=localhost\\SQL2022;Initial Catalog=DesafioAxis;Integrated Security=true;TrustServerCertificate=True;
+  },
+</code></pre>
 
 #### 4. Migrações do Entity Framework Core:
 
@@ -99,7 +104,18 @@ A API foi criada utilizando alguns critérios no desenvolvimento. Segue abaixo a
 <li>Navegue até o diretório onde o projeto foi clonado e abra o arquivo de solução DesafioAxis.sln</li>
 </ul>
 
-#### 3. Instalação do Docker
+#### 3. Configurar o Banco de dados
+
+<ul dir="auto">
+<li>Abra o arquivo appsettings.json, e digite a string de conexão para acesso ao banco de dados. Como no exemplo abaixo:</li>
+</ul>
+
+<pre class="notranslate"><code>  "ConnectionStrings": {
+    "DataBase": "Server=desafiosql;Database=DesafioAxis;User ID=sa;Password=1234;MultipleActiveResultSets=true"
+  },
+</code></pre>
+
+#### 4. Instalação do Docker
 
 O Docker possui uma versão para Desktop caso você prefira, ao invés de linha de comando.
 - Vamos então acessar a página de início do Docker e clicar em <a href="https://www.docker.com/get-started" rel="nofollow">Download Docker</a> Isto vai nos levar a página de Downloads.
@@ -112,7 +128,7 @@ Não se preocupe pois ele também fará a instalação do CLI.
 <li> abra um terminal e digite o seguinte comando para ver a versão do Docker instalada: <code>docker --version</code></li>
 </ul>
 
-#### 4. Executando o docker compose
+#### 5. Executando o docker compose
 
 Para rodar a aplicação e baixar e executar todas as dependências do projeto, utilizaremos o **Docker compose**.
 - Abra o terminal do docker, e acesse a pasta do projeto.
