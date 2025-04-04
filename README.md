@@ -4,9 +4,7 @@
 
 Entrega do desafio `Axis Challenge Backend Developer` onde pude demonstrar um pouco das minhas habilidades como `Backend Developer` com conhecimentos intermediários em `DevOps`.
 
-## 🚀 Tecnologias utilizadas
-
-* Tecnologias empregadas no projeto:
+## 🚀 Tecnologias utilizadas no projeto:
   <p align="center">
 <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=git,github,docker,dotnet,githubactions" /> 
